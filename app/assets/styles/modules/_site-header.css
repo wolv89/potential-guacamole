@@ -18,7 +18,11 @@
 	}
 
 	&__btn-container {
-		float: right;
+		padding-top: 10px;
+		@mixin atMedium {
+			padding-top: 0;
+			float: right;
+		}
 	}
 
 	&__logo {
@@ -44,28 +48,76 @@
 	}
 
 	&__menu-content {
-		display: none;
+		opacity: 0;
+		text-align: center;
+		transition: all 0.3s ease-out;
+		position: absolute;
+		z-index: -10;
 
 		&--is-visible {
-			display: block;
+			z-index: 200;
+			width: 100%;
+			opacity: 1;
+			background: rgba($mainBlue, 0.55);
 		}
 
 		@mixin atMedium {
-			display: block;
+			opacity: 1;
+			z-index: 1;
+			position: static;
 		}
 	}
 
 	&__menu-icon {
 		width: 20px;
 		height: 20px;
-		background: #fff;
 		position: absolute;
 		top: 10px;
 		right: 10px;
 
+		&__bar {
+			position: absolute;
+			width: 20px;
+			height: 3px;
+			background: #fff;
+			left: 0;
+			transition: all 0.3s ease-out;
+
+			&--top {
+				top: 0;
+				transform-origin: 0 0;
+			}
+
+			&--middle {
+				top: 8px;
+			}
+
+			&--bottom {
+				top: 16px;
+				transform-origin: 0 100%;
+			}
+		}
+
 		@mixin atMedium {
 			display: none;
 		}
+	}
+
+	&__menu-icon--close-x {
+
+		.site-header__menu-icon__bar {
+			&--top {
+				transform: rotate(45deg) scaleX(1.25);
+			}
+			&--middle {
+				opacity: 0;
+				transform: scaleX(0);
+			}
+			&--bottom {
+				transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+			}
+		}
+
 	}
 
 }

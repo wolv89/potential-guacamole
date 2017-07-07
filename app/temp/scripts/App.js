@@ -119,6 +119,7 @@ var MobileMenu = function () {
 		value: function toggleTheMenu() {
 
 			this.menuContainer.toggleClass('site-header__menu-content--is-visible');
+			this.menuIcon.toggleClass('site-header__menu-icon--close-x');
 		}
 	}]);
 
