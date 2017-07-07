@@ -1,5 +1,3 @@
-var $ = require('jquery');
-import Eat from './modules/Eat';
+import MobileMenu from './modules/MobileMenu';
 
-var Hotdog = new Eat("Hot Dog");
-Hotdog.review();
+var mobileMenu = new MobileMenu();

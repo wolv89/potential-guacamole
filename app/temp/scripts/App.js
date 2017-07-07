@@ -70,17 +70,13 @@
 "use strict";
 
 
-var _Eat = __webpack_require__(1);
+var _MobileMenu = __webpack_require__(1);
 
-var _Eat2 = _interopRequireDefault(_Eat);
+var _MobileMenu2 = _interopRequireDefault(_MobileMenu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var $ = __webpack_require__(2);
-
-
-var Hotdog = new _Eat2.default("Hot Dog");
-Hotdog.review();
+var mobileMenu = new _MobileMenu2.default();
 
 /***/ }),
 /* 1 */
@@ -95,26 +91,41 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _jquery = __webpack_require__(2);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Eat = function () {
-	function Eat(food) {
-		_classCallCheck(this, Eat);
+var MobileMenu = function () {
+	function MobileMenu() {
+		_classCallCheck(this, MobileMenu);
 
-		this.morcel = food;
+		this.menuIcon = (0, _jquery2.default)('#MobileMenu__toggle');
+		this.menuContainer = (0, _jquery2.default)('#MobileMenu__container');
+		this.events();
 	}
 
-	_createClass(Eat, [{
-		key: "review",
-		value: function review() {
-			console.log("Deliciously good");
+	_createClass(MobileMenu, [{
+		key: 'events',
+		value: function events() {
+
+			this.menuIcon.on('click', this.toggleTheMenu.bind(this));
+		}
+	}, {
+		key: 'toggleTheMenu',
+		value: function toggleTheMenu() {
+
+			this.menuContainer.toggleClass('site-header__menu-content--is-visible');
 		}
 	}]);
 
-	return Eat;
+	return MobileMenu;
 }();
 
-exports.default = Eat;
+exports.default = MobileMenu;
 
 /***/ }),
 /* 2 */
